@@ -2,16 +2,29 @@ package com.sanchi.zoihelpers;
 
 import com.badlogic.gdx.InputProcessor;
 import com.sanchi.gameobjects.Zoi;
+import com.sanchi.gameworld.GameWorld;
 
 public class InputHandler implements InputProcessor {
 	private Zoi myZoi;
+	private GameWorld myWorld;
 	
-	public InputHandler(Zoi zoi) {
-		myZoi = zoi;
+	public InputHandler(GameWorld myWorld) {
+	    this.myWorld = myWorld;
+	    myZoi = myWorld.getZoi();
 	}
+	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        if (myWorld.isReady()) {
+            myWorld.start();
+        }
+        
 		myZoi.onClick();
+		
+		if (myWorld.isGameOver() || myWorld.isHighScore()) {
+            myWorld.restart();
+        }
+		
 		return true;
 	}
 	

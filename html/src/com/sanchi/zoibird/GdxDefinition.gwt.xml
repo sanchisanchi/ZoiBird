@@ -7,4 +7,6 @@
 	<entry-point class='com.sanchi.zoibird.client.HtmlLauncher' />
 	
 	<set-configuration-property name="gdx.assetpath" value="../android/assets" />
+	<inherits name='aurelienribon.tweenengine'/>
 </module>
+

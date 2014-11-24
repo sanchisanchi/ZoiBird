@@ -11,4 +11,5 @@
 	<set-configuration-property name="devModeRedirectEnabled" value="true"/>
 	
 	<set-configuration-property name="gdx.assetpath" value="../android/assets" />
+	<inherits name='aurelienribon.tweenengine'/>
 </module>
